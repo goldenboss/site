@@ -1,0 +1,40 @@
+<?php
+
+
+
+/**
+ * Implements hook_menu()
+ */
+function my_module_menu() 
+{
+        $items = array();
+        
+        $items['admin/config/system/my_module'] = array(
+        'title' => 'Configuration form',
+        'description' => 'This is the first child item in the section' ,
+        'page callback' => 'drupal_get_form',
+	'page arguments' => array('fields_page_form'),
+        'access arguments' => array('admin_acess'), 
+	'access callback' => TRUE,
+  );
+     
+        return $items;
+}
+
+/**
+ * Build fields form.
+ */
+function fields_page_form($form, $form_state) {
+$form['number1'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Subject'),
+  '#size' => 25,
+);
+$form['number2'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Message'),
+  '#size' => 255,
+  '#height' => 50,
+);
+ return $form;
+}

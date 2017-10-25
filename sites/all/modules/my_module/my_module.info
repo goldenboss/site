@@ -1,0 +1,5 @@
+; &Id:$
+name = my_module
+description = thi is my module
+version = 7.x-dev
+core = 7.x
